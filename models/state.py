@@ -34,3 +34,13 @@ class State(BaseModel, Base):
                 if city.state_id == self.id:
                     city_list.append(city)
             return city_list
+
+class State(BaseModel):
+    name = ""
+
+    @property
+    def cities(self):
+        from models.city import City
+        from models import storage
+        city_list = storage.all(City)
+        return [city for city in city_list if city.state_id == self.id]
