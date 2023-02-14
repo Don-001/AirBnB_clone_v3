@@ -110,6 +110,12 @@ class TestFileStorage(unittest.TestCase):
         for key, value in new_dict.items():
             new_dict[key] = value.to_dict()
         string = json.dumps(new_dict)
+        
+    def test_count(self):
+    """Test that count method returns the correct number of objects"""
+    num_states = len(self.__file_storage.all(State).values())
+    num_cities = len(self.__file_storage.all(City).values())
+
         with open("file.json", "r") as f:
             js = f.read()
         self.assertEqual(json.loads(string), json.loads(js))
