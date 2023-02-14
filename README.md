@@ -92,8 +92,8 @@ config.vm.network :forwarded_port, guest: 5001, host: 5001
 
 ## Authors
 
-Abinet Tesfu - [Github](https://gAbinet508) 
-Melat Samuel - [Github](https://github.com/melatsam)
+Claudio Kimani - [Github](https://github.com/Don-001) 
+Glory Ola 
 
 
 Fourth part of Airbnb: 0x06. AirBnB clone - Web dynamic
