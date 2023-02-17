@@ -6,3 +6,17 @@ from flask import jsonify
 @app_views.route('/status', methods=['GET'])
 def get_status():
     return jsonify({"status": "OK"})
+
+from models import storage
+
+# Define a route for the "/stats" endpoint
+@app_views.route('/stats', methods=['GET'])
+def get_stats():
+    # Get a dictionary of class names and their corresponding count
+    stats = {}
+    for cls in storage.classes:
+        count = storage.count(cls)
+        stats[cls] = count
+
+    # Return the dictionary as a JSON response
+    return jsonify(stats)
