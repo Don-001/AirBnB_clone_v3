@@ -1,5 +1,5 @@
 # Import necessary modules
-from flask import Flask
+from flask import Flask, CORS
 from api.v1.views import app_views
 from models import storage
 
@@ -26,3 +26,6 @@ if __name__ == '__main__':
 
     # Run the Flask application
     app.run(host=host, port=port, threaded=True)
+
+# enable CORS
+CORS(app, resources={r"/*": {"origins": "0.0.0.0"}})
