@@ -13,7 +13,11 @@ app.register_blueprint(app_views, url_prefix='/api/v1')
 @app.teardown_appcontext
 def close_storage(error):
     storage.close()
-
+# Define a handler for 404 errors
+@app.errorhandler(404)
+def handle_404(error):
+    # Return a JSON-formatted 404 response
+    return jsonify({"error": "Not found"}), 404
 # Run the Flask application if this file is executed
 if __name__ == '__main__':
     # Set the default values for host and port
